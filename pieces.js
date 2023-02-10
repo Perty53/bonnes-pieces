@@ -35,7 +35,7 @@ var genererPieces = (pieces) => {
         pieceElement.appendChild(categorieElement);
         pieceElement.appendChild(descriptionElement);
         pieceElement.appendChild(avisBtn);
-        pieceElement.appendChild(avisElement);
+        
     }
     ajoutListenerAvis();
 }

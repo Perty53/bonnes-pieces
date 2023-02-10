@@ -7,6 +7,7 @@ export function ajoutListenerAvis(){
            const avis = await reponse.json();
            const pieceElement = e.target.parentElement;
             const avisElement = document.createElement('p');
+            pieceElement.appendChild(avisElement);
             
            for(let i = 0; i < avis.length; i++){
             avisElement.innerHTML = `${avis[i].utilisateur} : ${avis[i].commentaire} <br>`;
