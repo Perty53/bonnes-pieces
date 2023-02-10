@@ -1,11 +1,15 @@
+import { ajoutListenerAvis } from "./avis.js";
+
+
 //Recuperation des pieces depuis JSON
 const reponse = await fetch("pieces-autos.json")
 const pieces = await reponse.json();
 const fiches = document.querySelector('.fiches');
-
+ 
 //fiche produits
 var genererPieces = (pieces) => {
     for(let i = 0; i < pieces.length; i++){
+        const article = pieces[i]
         const sectionFiches = document.querySelector('.fiches');
         
         const pieceElement = document.createElement("article");
@@ -22,13 +26,17 @@ var genererPieces = (pieces) => {
         const descriptionElement = document.createElement('p')
         descriptionElement.innerText = pieces[i].description ?? "(Pas de description pour le moment !!!)";
         
-    
-       pieceElement.appendChild(imageElement);
+        const avisBtn = document.createElement('button');
+        avisBtn.dataset.id = article.id;
+        avisBtn.textContent = "Afficher les avis"
+        pieceElement.appendChild(imageElement);
         pieceElement.appendChild(nomElement);
         pieceElement.appendChild(prixElement);
         pieceElement.appendChild(categorieElement);
         pieceElement.appendChild(descriptionElement);
+        pieceElement.appendChild(avisBtn);
     }
+    ajoutListenerAvis();
 }
 
 genererPieces(pieces);
@@ -121,3 +129,7 @@ for(let i = 0; i < nomDis.length; i++){
 
 document.querySelector('.abordables').appendChild(abordElements);
 document.querySelector('.dispo').appendChild(dispoElements);
+
+fetch("http://monsite.fr/maressource");
+console.log("Continue");
+ 
