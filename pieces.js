@@ -1,5 +1,4 @@
 import { ajoutListenerAvis } from "./avis.js";
-import {avisElement} from './avis.js';
 
 //Recuperation des pieces depuis JSON
 const reponse = await fetch("pieces-autos.json")
@@ -39,9 +38,7 @@ var genererPieces = (pieces) => {
     }
     ajoutListenerAvis();
 }
-
 genererPieces(pieces);
-
 
 const btntriercro = document.querySelector(".btn-trier-cro");
 btntriercro.onclick = () => {
@@ -104,9 +101,6 @@ for(let i = pieces.length - 1; i >= 0; i--){
 
 const filtreParPrix = document.querySelector("#fprix");
 filtreParPrix.onchange = () => {
-    document.onmousemove = (e) =>{
-        console.log(e.clientX)
-    }
     console.log(filtreParPrix.value)
     
     const piecesFiltrees = pieces.filter(pce => pce.prix <= filtreParPrix.value);
