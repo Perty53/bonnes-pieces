@@ -10,7 +10,7 @@ var genererPieces = (pieces) => {
     for(let i = 0; i < pieces.length; i++){
         const article = pieces[i]
         const sectionFiches = document.querySelector('.fiches');
-        
+         
         const pieceElement = document.createElement("article");
         sectionFiches.appendChild(pieceElement);
     
