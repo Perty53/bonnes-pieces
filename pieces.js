@@ -1,5 +1,5 @@
 import { ajoutListenerAvis } from "./avis.js";
-
+import {avisElement} from './avis.js';
 
 //Recuperation des pieces depuis JSON
 const reponse = await fetch("pieces-autos.json")
@@ -35,6 +35,7 @@ var genererPieces = (pieces) => {
         pieceElement.appendChild(categorieElement);
         pieceElement.appendChild(descriptionElement);
         pieceElement.appendChild(avisBtn);
+        pieceElement.appendChild(avisElement);
     }
     ajoutListenerAvis();
 }
@@ -130,6 +131,5 @@ for(let i = 0; i < nomDis.length; i++){
 document.querySelector('.abordables').appendChild(abordElements);
 document.querySelector('.dispo').appendChild(dispoElements);
 
-fetch("http://monsite.fr/maressource");
-console.log("Continue");
+
  
