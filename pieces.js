@@ -1,9 +1,10 @@
-import { ajoutListenerAvis } from "./avis.js";
+import { ajoutListenerAvis, ajoutListenerEnvoyerAvis } from "./avis.js";
 
 //Recuperation des pieces depuis JSON
 const reponse = await fetch(`http://localhost:8081/pieces`);
 const pieces = await reponse.json();
 const fiches = document.querySelector('.fiches');
+ajoutListenerEnvoyerAvis();
  
 //fiche produits
 var genererPieces = (pieces) => {
