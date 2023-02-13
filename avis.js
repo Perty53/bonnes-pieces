@@ -3,13 +3,21 @@ export function ajoutListenerAvis(){
     for(let i = 0; i < piecesElements.length; i++){
         piecesElements[i].onclick = async (e) => {
             const idBtn = e.target.dataset.id;
-            const reponse = await fetch(`http://localhost:8081/pieces/${idBtn}/avis`),
-            avis = await reponse.json(),
-            avisElement = document.createElement('p');
+            
+            let avis = localStorage.getItem("avis");
+            if(avis === null){
+                 avis = await fetch(`http://localhost:8081/pieces/${idBtn}/avis`).then(avis => avis.json());
+
+                 localStorage.setItem(`avis${i+1}`, JSON.stringify(avis));
+            } else {
+                avis = JSON.parse(avis);
+            }
+            
+            const avisElement = document.createElement('p');
 
             const parentEl = e.target.parentElement;
             for(let i = 0; i < avis.length; i++){
-                avisElement.innerHTML += `${avis[i].utilisateur} : ${avis[i].commentaire}, ${avis[i].nbEtoiles??0} étoiles <br><br>`;
+                avisElement.innerHTML += `<b>${avis[i].utilisateur}</b> : <i>${avis[i].commentaire} </i><br>${avis[i].nbEtoiles??0} étoiles <br><br>`;
             }
             
             parentEl.appendChild(avisElement);

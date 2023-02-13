@@ -1,8 +1,21 @@
 import { ajoutListenerAvis, ajoutListenerEnvoyerAvis } from "./avis.js";
 
-//Recuperation des pieces depuis JSON
-const reponse = await fetch(`http://localhost:8081/pieces`);
-const pieces = await reponse.json();
+//Recuperation des pieces eventuellement stockees en local
+let pieces = window.localStorage.getItem("pieces");
+
+//Recuperation des pieces depuis l'API HTTP
+if(pieces === null){
+     pieces = await fetch(`http://localhost:8081/pieces`).then(pieces => pieces.json());
+    //const pieces = await reponse.json();
+
+    //Sauvegarde en local
+    const piecesStr = JSON.stringify(pieces);
+    window.localStorage.setItem("pieces",piecesStr);
+} else {
+    pieces = JSON.parse(pieces);
+}
+
+
 const fiches = document.querySelector('.fiches');
 ajoutListenerEnvoyerAvis();
  
@@ -127,4 +140,13 @@ document.querySelector('.abordables').appendChild(abordElements);
 document.querySelector('.dispo').appendChild(dispoElements);
 
 
- 
+//Gerer les pieces dans le localStorage
+const btnMettreAJour = document.querySelector(".btn-maj");
+btnMettreAJour.onclick = () => {
+    window.localStorage.removeItem('pieces');
+    const piecesElements = document.querySelectorAll(".fiches article button");
+    for(let i = 0; i < piecesElements.length; i++){
+        window.localStorage.removeItem(`avis${i+1}`);
+    }
+    location.reload();
+}
