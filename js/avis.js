@@ -78,6 +78,7 @@ export async function showGraphicAVis(){
     }
 
     const graph = new Chart(document.querySelector("#graphique-avis"), config,);
+    console.log(graph);
     }
 
 export async function showGraphiqueComment(){
