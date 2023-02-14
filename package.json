@@ -1,17 +1,29 @@
 {
-  "name": "api-http",
+  "dependencies": {
+    "chart.js": "^4.2.1"
+  },
+  "name": "les-bonnes-pieces",
   "version": "1.0.0",
-  "description": "",
+  "description": "Vente de pièces automobiles en ligne",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --port 8081 --no-cors db.json"
+    "test": "bonnes-pieces"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Perty53/bonnes-pieces.git"
+  },
+  "keywords": [
+    "pièces",
+    "automobile",
+    "taxi",
+    "achat",
+    "vente"
+  ],
+  "author": "Perty53",
   "license": "ISC",
-  "dependencies": {
-    "json-server": "^0.17.0"
+  "bugs": {
+    "url": "https://github.com/Perty53/bonnes-pieces/issues"
   },
-  "devDependencies": {
-    "@faker-js/faker": "^6.3.1"
-  }
+  "homepage": "https://github.com/Perty53/bonnes-pieces#readme"
 }

@@ -1,4 +1,4 @@
-import { ajoutListenerAvis, ajoutListenerEnvoyerAvis } from "./avis.js";
+import { ajoutListenerAvis, ajoutListenerEnvoyerAvis, showGraphicAVis, showGraphiqueComment } from "./avis.js";
 
 //Recuperation des pieces eventuellement stockees en local
 let pieces = window.localStorage.getItem("pieces");
@@ -38,6 +38,8 @@ var genererPieces = (pieces) => {
         categorieElement.innerText = pieces[i].categorie ?? "(Aucune catégorie)";
         const descriptionElement = document.createElement('p')
         descriptionElement.innerText = pieces[i].description ?? "(Pas de description pour le moment !!!)";
+        const dispo = document.createElement('p');
+        dispo.innerText = (pieces[i].disponibilite ? "En Stock" : "Epuisé");
         
         const avisBtn = document.createElement('button');
         avisBtn.dataset.id = article.id;
@@ -47,6 +49,7 @@ var genererPieces = (pieces) => {
         pieceElement.appendChild(prixElement);
         pieceElement.appendChild(categorieElement);
         pieceElement.appendChild(descriptionElement);
+        pieceElement.appendChild(dispo);
         pieceElement.appendChild(avisBtn);
         
     }
@@ -150,3 +153,6 @@ btnMettreAJour.onclick = () => {
     }
     location.reload();
 }
+
+showGraphicAVis();
+showGraphiqueComment();
