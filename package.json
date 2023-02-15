@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "chart.js": "^4.2.1"
+    "chart.js": "^4.2.1",
+    "eslint": "^8.34.0"
   },
   "name": "les-bonnes-pieces",
   "version": "1.0.0",
