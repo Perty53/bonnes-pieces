@@ -4,7 +4,7 @@ export function ajoutListenerAvis() {
         piecesElements[i].onclick = async (e) => {
             const btn = e.target;
             const avisElement = document.createElement('p');
-            avisElement.id = `avis${i+1}`
+            avisElement.id = `avis-${i+1}`
             if (btn.dataset.content === "hide-av") {
                 const idBtn = btn.dataset.id;
 
