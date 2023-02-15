@@ -26,5 +26,12 @@
   "bugs": {
     "url": "https://github.com/Perty53/bonnes-pieces/issues"
   },
-  "homepage": "https://github.com/Perty53/bonnes-pieces#readme"
+  "homepage": "https://github.com/Perty53/bonnes-pieces#readme",
+
+  "scripts": {
+    "dev": "http-server",
+    "lint": "eslint js/*.js"
+
+  }
+
 }
