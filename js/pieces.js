@@ -43,7 +43,8 @@ var genererPieces = (pieces) => {
         
         const avisBtn = document.createElement('button');
         avisBtn.dataset.id = article.id;
-        avisBtn.textContent = "Afficher les avis"
+        avisBtn.dataset.content = "hide-av";
+        avisBtn.textContent = "Afficher les avis";
         pieceElement.appendChild(imageElement);
         pieceElement.appendChild(nomElement);
         pieceElement.appendChild(prixElement);
