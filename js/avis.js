@@ -10,7 +10,9 @@ export function ajoutListenerAvis() {
 
                 let avis = localStorage.getItem("avis");
                 if (avis === null) {
-                    avis = await fetch(`http://localhost:8081/pieces/${idBtn}/avis`).then(avis => avis.json());
+                    avis = await fetch(`http://localhost:8081/pieces/${idBtn}/avis`).then(avis => avis.json()) || await fetch('../json/db.json').then((js) => {
+                      console.log(js)
+                    } );
 
                     localStorage.setItem(`avis${i + 1}`, JSON.stringify(avis));
                 } else {
